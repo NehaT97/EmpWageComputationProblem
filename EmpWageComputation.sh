@@ -33,10 +33,30 @@ function Emp_DailyWage()
 }
 
 
+function Emp_PartTimeEmpWage()
+{
+	isPartTime=1;	
+	isFullTime=2;
+	empRatePerHr=20;
+	randomCheck=$(( $RANDOM%3 ));
+	if [ $isPartTime -eq $randomCheck ]
+	then
+		empHrs=4;
+
+  	elif [ $isFullTime -eq $randomCheck ]
+	then	
+        	empHrs=8;
+  	else
+        	empHrs=0;
+	fi
+        PartTimeEmp=$(( $empRatePerHr*$empHrs ));
+	echo "Part Time Empployee Wage:"$PartTimeEmp
+}
 
 function main()
 {
 Emp_Attendance
 Emp_DailyWage
+Emp_PartTimeEmpWage
 }
 main
