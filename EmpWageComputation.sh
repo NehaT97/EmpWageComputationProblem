@@ -1,3 +1,4 @@
+#!/bin/bash 
 #Welcome to Employee Wage Computation#
 
 function Emp_Attendance()
@@ -12,8 +13,30 @@ function Emp_Attendance()
 	fi
 }
 
+
+function Emp_DailyWage()
+{
+	isPresent=1;
+ 	empRatePerHr=20;
+	randomCheck=$(( $RANDOM%2 ));
+	if [ $isPresent -eq $randomCheck ]
+   	then
+		empHrs=8;
+
+  	else
+		empHrs=0;
+	fi
+
+        salary=$(( $empRatePerHr*$empHrs ));
+	echo "Employee Wage:"$salary
+
+}
+
+
+
 function main()
 {
 Emp_Attendance
+Emp_DailyWage
 }
 main
