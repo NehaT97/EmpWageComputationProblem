@@ -121,6 +121,28 @@ function Emp_WagesForMonth()
 		echo "Total Wage for month:"$totalWage
 }
 
+function Emp_TotalWorkingHrsAndDay()
+{
+	isPartTime=1;
+	isFullTime=2;
+	empRatePerHr=20;
+	randomCheck=$(( $RANDOM%3 ));
+	case $randomCheck in
+  		$isFullTime)
+			empHrs=8;
+                 	;;
+		$isPartTime)
+			empHrs=4;
+		 	;;
+	*)
+			empHrs=0;
+		 	;;
+	esac
+       Total=$(($empHrs*$empRatePerHr))
+	echo "Wages:"$Total
+
+}
+
 function main()
 {
 Emp_Attendance
@@ -128,5 +150,6 @@ Emp_DailyWage
 Emp_PartTimeEmpWage
 Emp_UsingSwitchCases
 Emp_WagesForMonth
+Emp_TotalWorkingHrsAndDay
 }
 main
